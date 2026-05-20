@@ -1,25 +1,23 @@
-import { defineConfig, devices } from '@playwright/test';
-import { loadEnvConfig } from '@next/env';
+import { defineConfig, devices } from "@playwright/test";
+import { loadEnvConfig } from "@next/env";
 
-process.env.NODE_ENV = 'test';
+// process.env.NODE_ENV = 'test';
 loadEnvConfig(process.cwd());
 
 export default defineConfig({
-  testDir: './tests/e2e',
+  testDir: "./tests/e2e",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  reporter: 'html',
+  reporter: "html",
   use: {
-    baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
+    baseURL: "http://localhost:3000",
+    trace: "on-first-retry",
   },
-  projects: [
-    { name: 'chromium', use: devices['Desktop Chrome'] },
-  ],
+  projects: [{ name: "chromium", use: devices["Desktop Chrome"] }],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
+    command: "npm run dev",
+    url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
