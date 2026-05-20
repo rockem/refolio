@@ -17,7 +17,7 @@ supabase-stop:
 
 seed: supabase
 	@eval "$$(supabase status --output env)" && \
-		NEXT_PUBLIC_SUPABASE_URL="$$API_URL" \
+		SUPABASE_API_URL="$$API_URL" \
 		SUPABASE_SECRET_KEY="$$SECRET_KEY" \
 		E2E_USER_EMAIL="$(E2E_USER_EMAIL)" \
 		E2E_USER_PASSWORD="$(E2E_USER_PASSWORD)" \
@@ -25,8 +25,8 @@ seed: supabase
 
 test: seed
 	@eval "$$(supabase status --output env)" && \
-		NEXT_PUBLIC_SUPABASE_URL="$$API_URL" \
-		NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="$$PUBLISHABLE_KEY" \
+		SUPABASE_API_URL="$$API_URL" \
+		SUPABASE_PUBLISHABLE_KEY="$$PUBLISHABLE_KEY" \
 		E2E_USER_EMAIL="$(E2E_USER_EMAIL)" \
 		E2E_USER_PASSWORD="$(E2E_USER_PASSWORD)" \
 		npm run test:e2e

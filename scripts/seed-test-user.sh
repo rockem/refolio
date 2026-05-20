@@ -3,14 +3,14 @@
 # Idempotent: treats "user already exists" as success.
 #
 # Required env vars:
-#   NEXT_PUBLIC_SUPABASE_URL   - e.g. http://127.0.0.1:54321
+#   SUPABASE_API_URL   - e.g. http://127.0.0.1:54321
 #   SUPABASE_SECRET_KEY        - sb_secret_... (admin/service role)
 #   E2E_USER_EMAIL
 #   E2E_USER_PASSWORD
 
 set -euo pipefail
 
-: "${NEXT_PUBLIC_SUPABASE_URL:?NEXT_PUBLIC_SUPABASE_URL must be set}"
+: "${SUPABASE_API_URL:?NEXT_PUBLIC_SUPABASE_URL must be set}"
 : "${SUPABASE_SECRET_KEY:?SUPABASE_SECRET_KEY must be set}"
 : "${E2E_USER_EMAIL:?E2E_USER_EMAIL must be set}"
 : "${E2E_USER_PASSWORD:?E2E_USER_PASSWORD must be set}"
@@ -25,7 +25,7 @@ trap 'rm -f "$response"' EXIT
 
 status=$(
   curl -sS -o "$response" -w '%{http_code}' \
-    -X POST "$NEXT_PUBLIC_SUPABASE_URL/auth/v1/admin/users" \
+    -X POST "$SUPABASE_API_URL/auth/v1/admin/users" \
     -H "apikey: $SUPABASE_SECRET_KEY" \
     -H "Authorization: Bearer $SUPABASE_SECRET_KEY" \
     -H 'Content-Type: application/json' \
