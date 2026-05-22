@@ -7,6 +7,14 @@ export class AppDriver {
     await this.page.goto('/signin');
   }
 
+  async goToHome() {
+    await this.page.goto('/');
+  }
+
+  async expectOnSignInPage() {
+    await expect(this.page).toHaveURL(/\/signin$/);
+  }
+
   async signIn(email: string, password: string) {
     await this.page.getByLabel(/email/i).fill(email);
     await this.page.getByLabel(/password/i).fill(password);

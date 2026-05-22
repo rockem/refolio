@@ -30,3 +30,8 @@ test("signed-in user lands on the placeholder home page", async ({ app }) => {
   await app.signIn(E2E_USER_EMAIL!, E2E_USER_PASSWORD!);
   await app.expectOnHomePage();
 });
+
+test("signed-out visitor at / is redirected to /signin", async ({ app }) => {
+  await app.goToHome();
+  await app.expectOnSignInPage();
+});

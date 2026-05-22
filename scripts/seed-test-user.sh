@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-: "${SUPABASE_API_URL:?NEXT_PUBLIC_SUPABASE_URL must be set}"
+: "${SUPABASE_API_URL:?SUPABASE_API_URL must be set}"
 : "${SUPABASE_SECRET_KEY:?SUPABASE_SECRET_KEY must be set}"
 : "${E2E_USER_EMAIL:?E2E_USER_EMAIL must be set}"
 : "${E2E_USER_PASSWORD:?E2E_USER_PASSWORD must be set}"
