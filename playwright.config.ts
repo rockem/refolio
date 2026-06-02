@@ -1,7 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 import { loadEnvConfig } from "@next/env";
 
-process.env.NODE_ENV ??= "test";
 loadEnvConfig(process.cwd());
 
 export default defineConfig({
