@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useActionState, useId } from 'react';
-import { signIn, type SignInState } from './actions';
+import { useActionState, useId } from "react";
+import { signIn, type SignInState } from "./actions";
 
 const initialState: SignInState = {};
 
 const inputClass =
-  'rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/10';
+  "rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/10";
 
-const labelClass = 'text-sm font-medium text-zinc-700 dark:text-zinc-300';
+const labelClass = "text-sm font-medium text-zinc-700 dark:text-zinc-300";
 
 export function SignInForm() {
   const emailId = useId();
@@ -60,7 +60,7 @@ export function SignInForm() {
         disabled={pending}
         className="mt-1 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus:ring-zinc-100 dark:focus:ring-offset-zinc-900"
       >
-        {pending ? 'Signing in…' : 'Sign in'}
+        {pending ? "Signing in…" : "Sign in"}
       </button>
     </form>
   );
